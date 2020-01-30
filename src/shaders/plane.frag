@@ -162,8 +162,8 @@ void main() {
     float es = 0.451 - 0.021 * exponentialEasing(mProgression, 0.6);
     // float edge = clamp((1.-step(abs(vUv.x), es)) + (1.-step(abs(vUv.y), es)), 0., 1.) * mProgression;
     // vec4 c = mix(texel1, texel2, m);
-    float tm = step(vUv.x + .1, vMidline - 0.05) + (1. - smoothstep(vUv.x + .1, vMidline - 0.05, vMidline + 0.05));
-    vec4 c = mix(texel1, texel2, tm * .4 + m * .6);
+    float tm = step(vUv.y + .1, vMidline - 0.05) + (1. - smoothstep(vUv.y + .1, vMidline - 0.05, vMidline + 0.05));
+    vec4 c = mix(texel1, texel2, (1. - tm) * .3 + m * .7);
     
     gl_FragColor = c;
     // gl_FragColor = vec4((1. - edge) * c.rgb + edge * (1. - c.rgb), 1.);

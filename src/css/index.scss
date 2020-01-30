@@ -19,3 +19,12 @@ canvas {
 
     top: 0;
 }
+
+.hud {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+}
+
+@import './title';

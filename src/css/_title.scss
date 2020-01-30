@@ -1,0 +1,54 @@
+.title {
+    position: absolute;
+    display: inline-block;
+    right: 50%;
+    align-self: center;
+
+    color: white;
+    font-family: 'EB Garamond', serif;
+    text-align: right;
+
+    user-select: none;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 63%;
+        height: 5px;
+        width: 150px;
+        background: white;
+    }
+
+    &-main {
+        height: 15.3rem;
+        overflow: hidden;
+        font-size: 15rem;
+        line-height: 1.05;
+        &-container {
+            transform: translateY(-7%);
+        }
+    }
+
+    &-secondary {
+        height: 6.5rem;
+        overflow: hidden;
+        font-size: 6rem;
+        line-height: 1.05;
+        font-style: italic;
+        &-container {
+            transform: translateY(-7%);
+        }
+    }
+
+    &-main,
+    &-secondary {
+        margin: 0;
+
+        &-first,
+        &-second {
+            font-weight: 200;
+        }
+    }
+}

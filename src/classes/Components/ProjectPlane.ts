@@ -20,17 +20,34 @@ export default class ProjectPlane extends Component {
             fragmentShader,
             vertexShader,
         })
+
+        const sections: Section[] = [
+            {
+                texture: loader.load('./assets/cube.png'),
+                title: { main: 'Cube', secondary: 'Decay' },
+            },
+            {
+                texture: loader.load('./assets/lines.png'),
+                title: { main: 'Marble', secondary: 'Lips' },
+            },
+        ]
+
         super(() => {
             const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.9, 20, 20), mat)
             mesh.scale.set(1.2, 1.2, 1.2)
-            mesh.position.x = 1.2
+            mesh.position.x = 0.9
             return mesh
         }, [
-            new ScrollPlane(domElement, [loader.load('./assets/cube.png'), loader.load('./assets/lines.png')]),
+            new ScrollPlane(sections),
             new HoverPlane(backPlane),
             (_: THREE.Object3D, time: number) => {
                 mat.uniforms.time.value = time
             },
         ])
     }
+}
+
+export interface Section {
+    texture: THREE.Texture
+    title: { main: string; secondary: string }
 }

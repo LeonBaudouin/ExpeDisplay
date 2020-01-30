@@ -97,9 +97,9 @@ void main() {
     float n = snoise(vec3(position.xy * 2., time / 300.));
     float nn = (n + 1.) / 2.;
 
-    vMidline = (progression - .5) * 2.;
+    vMidline = - (progression - .5) * 2.;
 
-    vPulse = cubicPulse(vMidline, .3, position.x);
+    vPulse = cubicPulse(vMidline, .3, position.y);
 
     float tz = vPulse * nn * .1;
     pos += vec3(0, 0, tz);

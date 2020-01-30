@@ -1,7 +1,9 @@
 uniform float time;
 varying vec3 vUv;
 
-float rand(float n){return fract(sin(n) * 43758.5453123);}
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
 //	Simplex 3D Noise 
 //	by Ian McEwan, Ashima Arts
 //
@@ -80,5 +82,5 @@ float snoise(vec3 v){
 void main() {
     float n = snoise(vec3(vUv.xy * 0.1, time / 300.));
     float nn = (n + 1.) / 2.;
-    gl_FragColor = vec4(vec3(nn / 8.) + rand(rand(vUv.x * vUv.y * time / 30000.))   / 20., 1.);
+    gl_FragColor = vec4(vec3(nn / 8.) + rand(vUv.xy) / 20., 1.);
 }
